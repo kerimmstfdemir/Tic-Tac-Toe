@@ -1,27 +1,35 @@
-<div class="container">
-  <app-board (statusChange)="updateStatus($event)" (gameOver)="displayContinueButton()"></app-board>
-  <div class="status">
-    {{ statusMessage }}
-  </div>
-  <div class="buttons">
-    <button *ngIf="showResetButton" (click)="resetGame()">Reset Game</button>
-    <button *ngIf="showContinueBtn" (click)="continueGame()">Continue</button>
-  </div>
-  <div class="scoreboard">
-    <h3>Scoreboard</h3>
-    <table>
-      <tr>
-        <th>Player</th>
-        <th>Score</th>
-      </tr>
-      <tr>
-        <td>You</td>
-        <td>{{ score.X }}</td>
-      </tr>
-      <tr>
-        <td>Computer</td>
-        <td>{{ score.O }}</td>
-      </tr>
-    </table>
+<div class="container text-center">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="scoreboard">
+        <h3>Scoreboard</h3>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>You</td>
+              <td>{{ score.X }}</td>
+            </tr>
+            <tr>
+              <td>Computer</td>
+              <td>{{ score.O }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <app-board (statusChange)="updateStatus($event)" (gameOver)="displayContinueButton()"></app-board>
+      <div class="status mt-3" style="margin-top: 1.5rem; text-align: center;">
+        {{ statusMessage }}
+      </div>
+      <div class="buttons mt-3">
+        <button *ngIf="showResetButton" class="btn btn-primary me-2" (click)="resetGame()" style="margin-top: 1.5rem;">Reset Game</button>
+        <button *ngIf="showContinueBtn" class="btn btn-success" (click)="continueGame()" style="margin-top: 1.5rem;">Continue</button>
+      </div>
+    </div>
   </div>
 </div>
